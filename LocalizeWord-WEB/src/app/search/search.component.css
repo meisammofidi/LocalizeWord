@@ -1,0 +1,26 @@
+/*  custome background (cbg)  
+    custom button (cbtn)
+
+*/
+
+.cbg-blueMid {
+  background-color: #00188f;
+  border-color: #00188f;
+}
+
+.cbtn-xlg {
+  padding: 10px 60px;
+  font-size: 28px;
+}
+
+.btn-primary.cbtn-blueMid {
+  padding: 10px 60px;
+  font-size: 28px;
+  background-color: #00188f;
+  border-color: #00188f;
+}
+
+.fc-wide{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
