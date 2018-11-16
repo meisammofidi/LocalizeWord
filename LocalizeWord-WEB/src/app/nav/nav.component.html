@@ -1,58 +1,32 @@
-<nav class="navbar navbar-expand-md py-4 mx-5">
+<nav class="navbar navbar-expand-md mx-5">
   <div class="container">
     <!--<a class="navbar-brand" href="#">WoW Project</a>-->
     <!--<img class="navbar-brand logo-small" src="/src/app/img/parsilogo2.png" alt="Faravahar-persian" />-->
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active"><a class="nav-link" href="#">Home </a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+    <ul class="navbar-nav float-left" dir="rtl" >
+      <li class="nav-item active"><a class="nav-link" href="#">خانه</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">پبوندها</a></li>
       <li class="nav-item">
-        <a class="nav-link" href="#" (click)="Logout()">Log out</a>
+        <a class="nav-link" href="#" (click)="Logout()">بیرون</a>
       </li>
     </ul>
 
-    <div *ngIf="LoggedIn()" class="dropdown">
-      <a class="dropdown-toggle"> Welcome User </a>
+    <div *ngIf="LoggedIn()" class="dropdown float-right">
+      <a class="dropdown-toggle"> {{model.username}} </a>
 
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#"
-          ><i class="fa fa-user"></i>Edit Profile</a
-        >
+      <div class="dropdown-menu" >
+        <a class="dropdown-item" href="#"><i class="fa fa-user"></i>ویرایش</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#"
-          ><i class="fa fa-sign-out"></i>Log out</a
-        >
+        <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>بیرون</a>
       </div>
     </div>
 
-    <form
-      *ngIf="!LoggedIn()"
-      #loginForm="ngForm"
-      class="form-inline my-2 my-lg-0"
-      (ngSubmit)="Login()"
-    >
-      <input
-        class="form-control mr-sm-2"
-        type="text"
-        name="username"
-        placeholder="Username"
-        required
-        [(ngModel)]="model.username"
-      />
-      <input
-        class="form-control mr-sm-2"
-        type="password"
-        name="password"
-        placeholder="Password"
-        required
-        [(ngModel)]="model.password"
-      />
-      <button
-        [disabled]="!loginForm.valid"
-        class="btn btn-primary my-2 my-sm-0"
-        type="submit"
-      >
-        Login
-      </button>
+    <form *ngIf="!LoggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0 float-right" (ngSubmit)="Login()" >
+    <button [disabled]="!loginForm.valid" class="btn btn-primary my-2 my-sm-0" type="submit" >درون شو</button>
+    <input class="form-control m-sm-2" type="password" name="password" placeholder="گذرواژه" dir="rtl" required
+           [(ngModel)]="model.password" />
+    <input class="form-control mr-sm-2" type="text" name="username" placeholder="نام کاربری" dir="rtl" required
+           [(ngModel)]="model.username"  />
+      
     </form>
   </div>
 </nav>
