@@ -11,7 +11,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             catchError(error => {
                 if (error instanceof HttpErrorResponse) {
                     if (error.status === 401) {
-                        return throwError(error.statusText);
+                        return throwError('نام کاربری یا گذرواژه نادرست است'); // error.statusText
                     }
                     const  applicationError = error.headers.get('Application-Error');
                     if (applicationError) {
