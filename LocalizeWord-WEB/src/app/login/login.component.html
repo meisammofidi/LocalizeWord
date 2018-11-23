@@ -1,0 +1,46 @@
+<div class="container h-100">
+  <div class="row align-items-center h-100">
+    <div class="col-lg-4 mx-auto">
+      <div class="card cbg-blueMid text-center card-form text-white">
+        <div class="card-header "><h2>به سامانه</h2></div>
+        <div class="card-body" dir="rtl">
+          <form  #loginForm="ngForm" (ngSubmit)="login()">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="نام کاربری"
+                name="username"
+                [(ngModel)]="model.username"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                placeholder="گذرواژه"
+                name="password"
+                [(ngModel)]="model.password"
+                required
+              />
+            </div>
+            <div class="form-group text-center">
+              <button [disabled]="!loginForm.valid" class="btn btn-outline-light btn-block" type="submit">
+                راهـیـابـی
+              </button>
+            </div>
+          </form>
+
+          <div class="form-group text-right">
+            <a class="nav-link" [routerLink]="['/register']" >هنوز نام نویسی نکرده ام!</a>
+          </div>
+
+          <div class="form-group text-right">
+            <a  class="nav-link" [routerLink]="['/home']"  >گذرواژه را فراموش کرده ام</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

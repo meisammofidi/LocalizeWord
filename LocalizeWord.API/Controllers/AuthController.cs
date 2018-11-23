@@ -32,7 +32,7 @@ namespace LocalizeWord.API.Controllers
             userRegisterDto.Username = userRegisterDto.Username.ToLower();
 
             if (await _repo.UserExists(userRegisterDto.Username))
-                return BadRequest("Username already exists");
+                return BadRequest("نام کاربری از پیش در سامانه می باشد");
 
             var userToCreate = new User { UserName = userRegisterDto.Username };
 

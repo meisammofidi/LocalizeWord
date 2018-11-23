@@ -4,3 +4,17 @@
 @import'../node_modules/alertifyjs/build/css/alertify.min.css';
 /* @import'../node_modules/alertifyjs/build/css/alertify.rtl.min.css';*/
 @import'../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+
+html, body {
+  height:100%;
+}
+
+/* .container, .row {
+  height: 100%;
+  min-height: 100%;
+} */
+
+.cbg-blueMid {
+    background-color: #00188f;
+    border-color: #00188f;
+  }

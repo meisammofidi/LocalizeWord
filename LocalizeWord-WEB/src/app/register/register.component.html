@@ -1,18 +1,106 @@
-<form #registerForm="ngForm" (ngSubmit)="register()">
-  <h2 class="text-center text-primary">Sign Up</h2>
-  <hr>
+<!--
+  <form #registerForm="ngForm" (ngSubmit)="register()">
+    <h2 class="text-center text-primary">Sign Up</h2>
+    <hr />
 
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Username" name="Username" [(ngModel)]="model.username" required>
-  </div>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Username"
+        name="Username"
+        [(ngModel)]="model.username"
+        required
+      />
+    </div>
 
-  <div class="form-group">
-    <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="model.password" required>
-  </div>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="model.password"
+        required
+      />
+    </div>
 
-  <div class="form-group text-center">
-    <button class="btn btn-success mr-2" type="submit">Register</button>
-    <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+    <div class="form-group text-center">
+      <button class="btn btn-success mr-2" type="submit">Register</button>
+      <button class="btn btn-default" type="button" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
+-->
+
+<!--
+  https://stackoverflow.com/questions/42252443/vertical-align-center-in-bootstrap-4 (Put card in middle of page)
+-->
+<div class="container h-100">
+  <div class="row align-items-center h-100">
+    <div class="col-lg-4 mx-auto">
+      <div class="card cbg-blueMid text-center card-form text-white">
+        <div class="card-header "><h2>نام نویسی</h2></div>
+        <div class="card-body" dir="rtl">
+          <p>برگه زیر را پر نمایید</p>
+          <form #registerForm="ngForm" (ngSubmit)="register()"> 
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="نام کاربری"
+                name="username"
+                [(ngModel)]="model.username"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control form-control-lg"
+                placeholder="رایانامه"
+                name="email"
+                [(ngModel)]="model.email"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                placeholder="گذرواژه"
+                name="password"
+                [(ngModel)]="model.password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control form-control-lg"
+                placeholder="بازنویسی گذرواژه"
+                name="confirmPassword"
+                [(ngModel)]="model.confirmPassword"
+              />
+            </div>
+
+            <div class="form-group text-center">
+              <button class="btn btn-outline-light btn-block" type="submit">
+                پذیرش
+              </button>
+            </div>
+          </form>
+          
+          <div class="form-group text-right">
+            <a class="nav-link text-white" [routerLink]="['/login']" >پیشتر نام نویسی کرده ام!</a>
+          </div>
+          
+          <div class="form-group text-right">
+            <a class="nav-link text-white" [routerLink]="['/home']" >بازگشت به تارنمای خانه</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
-  
-</form>
+</div>

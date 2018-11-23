@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,20 +11,9 @@ import { AlertifyService } from '../_services/alertify.service';
 export class NavComponent implements OnInit {
   model: any = {};
 
-  constructor(public authService: AuthService, private alertify: AlertifyService) {}
+  constructor(public authService: AuthService, private router: Router, private alertify: AlertifyService) {}
 
   ngOnInit() {}
-
-  login() {
-    this.authService.login(this.model).subscribe(
-      next => {
-        this.alertify.success('به سامانه خوش آمدید');
-      },
-      error => {
-        this.alertify.error(error);
-      }
-    );
-  }
 
   loggedIn() {
     return this.authService.loggedIn();
@@ -31,6 +21,7 @@ export class NavComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    this.alertify.message('بدرود تا دیداری دوباره');
+    this.alertify.message('بدرود تا بازگشتی دوباره');
+    this.router.navigate(['/home']);
   }
 }
