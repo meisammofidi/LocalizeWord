@@ -34,7 +34,10 @@ namespace LocalizeWord.API.Controllers
             if (await _repo.UserExists(userRegisterDto.Username))
                 return BadRequest("نام کاربری از پیش در سامانه می باشد");
 
-            var userToCreate = new User { UserName = userRegisterDto.Username };
+            if (await _repo.emailExists(userRegisterDto.Email))
+                return BadRequest("رایانامه از پیش در سامانه می باشد");
+
+            var userToCreate = new User { UserName = userRegisterDto.Username, Email = userRegisterDto.Email };
 
             var createdUser = await _repo.Register(userToCreate, userRegisterDto.Password);
 

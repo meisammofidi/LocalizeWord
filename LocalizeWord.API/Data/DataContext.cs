@@ -9,6 +9,9 @@ namespace LocalizeWord.API.Data
 
         public DbSet<Value> Values { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<List> Lists { get; set; }
+        public DbSet<ListItem> ListItems { get; set; }
+        public DbSet<ListItemCaption> ListItemCaptions { get; set; }
 
     }
 }

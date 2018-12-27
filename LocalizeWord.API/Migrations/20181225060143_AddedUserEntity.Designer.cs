@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocalizeWord.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181102202641_AddUserEntity")]
-    partial class AddUserEntity
+    [Migration("20181225060143_AddedUserEntity")]
+    partial class AddedUserEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,9 +23,15 @@ namespace LocalizeWord.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<string>("Email");
+
                     b.Property<byte[]>("PasswordHash");
 
                     b.Property<byte[]>("PasswordSalt");
+
+                    b.Property<DateTime>("UpdatedAt");
 
                     b.Property<string>("UserName");
 

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace LocalizeWord.API.Migrations
 {
-    public partial class AddUserEntity : Migration
+    public partial class AddedUserEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,12 @@ namespace LocalizeWord.API.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserName = table.Column<string>(nullable: true),
-                    PasswordHash = table.Column<byte[]>(nullable: true),
-                    PasswordSalt = table.Column<byte[]>(nullable: true)
+                    UserName = table.Column<string>(nullable: false),
+                    PasswordHash = table.Column<byte[]>(nullable: false),
+                    PasswordSalt = table.Column<byte[]>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

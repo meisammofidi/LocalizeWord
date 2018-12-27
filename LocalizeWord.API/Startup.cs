@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using LocalizeWord.API.Data;
 using LocalizeWord.API.Helpers;
 using LocalizeWord.API.Repository;
@@ -38,7 +39,9 @@ namespace LocalizeWord.API
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddCors();
+            services.AddAutoMapper();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IAppRepository, AppRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
