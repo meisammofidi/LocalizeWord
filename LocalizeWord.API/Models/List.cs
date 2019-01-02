@@ -10,6 +10,7 @@ namespace LocalizeWord.API.Models
         public string Name { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public ICollection<ListItem> ListItems { get; set; }
+        public string Description { get; set; }
+        public virtual ICollection<ListItem> ListItems { get; set; }
     }
 }

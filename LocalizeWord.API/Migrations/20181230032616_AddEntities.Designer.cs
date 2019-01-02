@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LocalizeWord.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20181226034847_AddListsEntities")]
-    partial class AddListsEntities
+    [Migration("20181230032616_AddEntities")]
+    partial class AddEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,6 +24,8 @@ namespace LocalizeWord.API.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("CreatedAt");
+
+                    b.Property<string>("Description");
 
                     b.Property<string>("ListKey");
 
@@ -110,6 +112,38 @@ namespace LocalizeWord.API.Migrations
                     b.ToTable("Values");
                 });
 
+            modelBuilder.Entity("LocalizeWord.API.Models.Word", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CategoryId");
+
+                    b.Property<string>("Context");
+
+                    b.Property<DateTime>("CreatedAt");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<int>("LanguageId");
+
+                    b.Property<int?>("LoanWordId");
+
+                    b.Property<DateTime>("UpdatedAt");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("LanguageId");
+
+                    b.HasIndex("LoanWordId");
+
+                    b.ToTable("Words");
+                });
+
             modelBuilder.Entity("LocalizeWord.API.Models.ListItem", b =>
                 {
                     b.HasOne("LocalizeWord.API.Models.List", "List")
@@ -124,6 +158,23 @@ namespace LocalizeWord.API.Migrations
                         .WithMany("ListItemCaptions")
                         .HasForeignKey("ListItemId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LocalizeWord.API.Models.Word", b =>
+                {
+                    b.HasOne("LocalizeWord.API.Models.ListItem", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LocalizeWord.API.Models.ListItem", "Language")
+                        .WithMany()
+                        .HasForeignKey("LanguageId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LocalizeWord.API.Models.Word", "LoanWord")
+                        .WithMany("NativeWords")
+                        .HasForeignKey("LoanWordId");
                 });
 #pragma warning restore 612, 618
         }

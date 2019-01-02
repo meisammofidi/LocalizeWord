@@ -1,0 +1,22 @@
+insert into Words (LoanWordId, Context, LanguageId, CategoryId, CreatedAt, UpdatedAt, Description, IsDeleted)
+values
+(null, 'جهت', 2, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='جهت'), 'رو', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='جهت'), 'از این رو', 1, 11, datetime(), datetime(),null, 0),
+(null, 'طریق', 2, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='طریق'), 'روش', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='طریق'), 'راه', 1, 11, datetime(), datetime(),null, 0),
+(null, 'قبیل', 2, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='قبیل'), 'اینگونه', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='قبیل'), 'دست', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='قبیل'), 'سان', 1, 11, datetime(), datetime(),null, 0),
+(null, 'استیلاء', 2, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='استیلاء'), 'چیرگی', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='استیلاء'), 'پیروزی', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='استیلاء'), 'دستیابی', 1, 11, datetime(), datetime(),null, 0),
+(null, 'استراق سمع', 2, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='استراق سمع'), 'دزدگوشی', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='استراق سمع'), 'شنود دزدکی', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='استراق سمع'), 'شنود', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='استراق سمع'), 'فال گوش ایستادن', 1, 11, datetime(), datetime(),null, 0),
+((select id from Words where Context='استراق سمع'), 'نهان گوشی', 1, 11, datetime(), datetime(),null, 0);
