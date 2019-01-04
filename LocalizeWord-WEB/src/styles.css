@@ -18,3 +18,7 @@ html, body {
     background-color: #00188f;
     border-color: #00188f;
   }
+
+  .fa-large-icon {
+    font-size:24px;
+    }

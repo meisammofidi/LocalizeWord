@@ -1,3 +1,37 @@
-<p>
-  words works!
-</p>
+<div class="container">
+  <div class="card mt-3 p-5 text-center" *ngIf="isEmptyArray(words)">
+    <h5>دستاوردی برای جستجوی شما پیدا نشد</h5>
+  </div>
+  <div *ngIf="words">
+    <div class="card border-primary mt-3" *ngFor="let word of words">
+      <div class="card-header border-bottom border-primary">
+        <div class="d-flex justify-content-start">
+          <div class="p-2 fa fa-file-text-o fa-large-icon" title="بازنمودن واژه"></div>
+          <div class="p-2 fa fa-pencil-square-o fa-large-icon" title="ویرایش"></div>
+          <div class="p-2 fa fa-trash-o fa-large-icon" title="زدون"></div>
+          <h5 class="ml-auto p-2">
+            {{ word.context }}
+          </h5>
+        </div>
+      </div>
+      <div class="card-body">
+      <div class="d-flex">
+        <span class="ml-auto p-1">
+          زبان وام دهنده: {{ word.languageCaption }}
+        </span>
+      </div>
+      <div class="d-flex">
+        <span class="ml-auto p-1">
+          دسته بندی واژه: {{ word.categoryCaption }}
+        </span>
+      </div>
+      <div class="d-flex">
+        <div class="ml-auto p-1">
+          واژه های پارسی:
+          <span class="ml-auto p-2 font-weight-bold" *ngFor="let item of word.nativeWords; let i = index">{{ item.context }}{{ i === word.nativeWords.length - 1 ? '' : ' -' }}</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
