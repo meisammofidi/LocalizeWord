@@ -1,20 +1,20 @@
-import { AlertifyService } from './../_services/alertify.service';
-import { Word } from './../_models/Word';
 import { Component, OnInit } from '@angular/core';
-import { WordService } from '../_services/Word.service';
+import { WordService } from '../../_services/Word.service';
+import { AlertifyService } from '../../_services/alertify.service';
+import { Word } from '../../_models/Word';
 
 @Component({
-  selector: 'app-words',
-  templateUrl: './words.component.html',
-  styleUrls: ['./words.component.css']
+  selector: 'app-word-list',
+  templateUrl: './word-list.component.html',
+  styleUrls: ['./word-list.component.css']
 })
-export class WordsComponent implements OnInit {
+export class WordListComponent implements OnInit {
+
   words: Word[];
 
   constructor(
     private wordService: WordService,
-    private alertify: AlertifyService
-  ) {}
+    private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.loadWords();
@@ -34,4 +34,5 @@ export class WordsComponent implements OnInit {
   isEmptyArray(arr) {
     return (arr && (Object.keys(arr).length === 0));
   }
+
 }

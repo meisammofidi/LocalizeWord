@@ -1,7 +1,7 @@
+import { WordListComponent } from './words/word-list/word-list.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { WordsComponent } from './words/words.component';
 import { LoginComponent } from './login/login.component';
 import { MembersComponent } from './members/members.component';
 import { HomeLayoutComponent } from './layouts/home-layout.component';
@@ -15,7 +15,7 @@ export const appRoutes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'members', component: MembersComponent, canActivate: [AuthGuard] },
-      { path: 'words', component: WordsComponent, canActivate: [AuthGuard] }
+      { path: 'words', component: WordListComponent, canActivate: [AuthGuard] }
     ]
   },
   {

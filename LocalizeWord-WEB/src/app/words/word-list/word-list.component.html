@@ -1,0 +1,10 @@
+<div class="container">
+  <div *ngIf="isEmptyArray(words)" class="card mt-3 p-5 text-center">
+    <h5>دستاوردی برای جستجوی شما پیدا نشد</h5>
+  </div>
+  <div *ngIf="words">
+    <div *ngFor="let word of words">
+      <app-word-card [word]="word"></app-word-card>
+    </div>
+  </div>
+</div>

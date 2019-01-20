@@ -17,10 +17,11 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './_services/alertify.service';
 import { MembersComponent } from './members/members.component';
-import { WordsComponent } from './words/words.component';
 import { LoginComponent } from './login/login.component';
 import { SignupLayoutComponent } from './layouts/signup-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout.component';
+import { WordListComponent } from './words/word-list/word-list.component';
+import { WordCardComponent } from './words/word-card/word-card.component';
 import { appRoutes } from './routes';
 
 export function tokenGetter() {
@@ -35,10 +36,11 @@ export function tokenGetter() {
       HomeComponent,
       RegisterComponent,
       MembersComponent,
-      WordsComponent,
       LoginComponent,
       HomeLayoutComponent,
-      SignupLayoutComponent
+      SignupLayoutComponent,
+      WordListComponent,
+      WordCardComponent
    ],
    imports: [
       BrowserModule,
