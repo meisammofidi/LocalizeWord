@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  inputText: string;
 
-  constructor() { }
+  constructor(private router: Router) {}
+  ngOnInit() {}
 
-  ngOnInit() {
+  search() {
+    if (this.inputText) {
+      this.router.navigate(['/words/find/', this.inputText]); // Connect to WordListComponent which is clarified in routes.ts
+    } else {
+      this.router.navigate(['/home']);
+    }
   }
-
 }

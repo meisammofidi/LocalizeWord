@@ -32,5 +32,28 @@ namespace LocalizeWord.API.Controllers
 
         }
 
+        [HttpGet("find/{term}")]
+        public async Task<IActionResult> FindWords(string term)
+        {
+            var searchResult = await _repo.FindWords(term);
+
+            var vocabolaryToReturn = _mapper.Map<IEnumerable<WordListDto>>(searchResult);
+
+            return Ok(vocabolaryToReturn);
+
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetWordById(int Id)
+        {
+            var searchResult = await _repo.GetWordById(Id);
+
+            var vocabolaryToReturn = _mapper.Map<WordListDto>(searchResult);
+
+            return Ok(vocabolaryToReturn);
+
+        }
+        
+
     }
 }

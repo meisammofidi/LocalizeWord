@@ -1,14 +1,10 @@
-<!--*ngFor="let word of words"-->
 <div class="card border-primary mt-3">
   <div class="card-header border-bottom border-primary">
     <div class="d-flex">
-      <div
-        class="p-2 fa fa-file-text-o fa-large-icon"
-        title="بازنمودن واژه"
-      ></div>
-      <div class="p-2 fa fa-pencil-square-o fa-large-icon" title="ویرایش"></div>
-      <div class="p-2 fa fa-trash-o fa-large-icon" title="زدودن"></div>
-      <h5 class="ml-auto p-1">{{ word.context }}</h5>
+      <button type="button" class="btn btn-light fa fa-file-text-o fa-large-icon" title="بازنمودن واژه"></button>
+      <button type="button" class="btn btn-light fa fa-pencil-square-o fa-large-icon" title="ویرایش"></button>
+      <button type="button" class="btn btn-light fa fa-trash-o fa-large-icon" title="زدودن"></button>
+      <a class="ml-auto p-1" [routerLink]="['/words', word.id]"><h5>{{ word.context }}</h5></a>
     </div>
   </div>
   <div class="card-body">

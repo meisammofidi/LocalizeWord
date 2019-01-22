@@ -1,32 +1,43 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <form class="pt-5">
-        <div class="form-row justify-content-center">
-          <div class="col-md-9">
-            <input
-              class="form-control form-control-lg mt-5"
-              type="text"
-              name="inputtext"
-              placeholder="واژه را اینجا بنویس . . . "
-              dir="rtl"
-            />
-          </div>
-          <div class="col-md-1">
-            <i class="fa fa-search mt-5" style="font-size:48px;color:whitesmoke"></i>
+      <form class="pt-5" #searchForm="ngForm" (ngSubmit)="search()"> <!--#searchForm="ngForm" (ngSubmit)="search()"-->
+        <div class="form-group">
+          <div class="form-row justify-content-center">
+            <div class="col-md-9">
+              <input
+                class="form-control form-control-lg mt-5"
+                type="text"
+                placeholder="واژه را اینجا بنویس . . . "
+                name="inputText"
+                [(ngModel)]="inputText"
+                dir="rtl"
+              />
+            </div>
+            <div class="col-md-1">
+              <i
+                class="fa fa-search mt-5"
+                style="font-size:48px;color:whitesmoke"
+              ></i>
+            </div>
           </div>
         </div>
-        <div class="form-row">
-          <div class="col-md-11 text-center">
-            <button type="submit" class="btn btn-primary cbtn-xlg m-4">
-              بــیــاب
-            </button>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col-md-11 text-center">
+             <button type="submit" class="btn btn-primary cbtn-xlg m-4">
+                <!--(click)="search()"-->
+                بــیــاب
+              </button>
+            </div>
           </div>
         </div>
       </form>
     </div>
   </div>
 </div>
+<!-- <app-word-list [words]="words"></app-word-list> -->
+
 
 <!-- <div class="container ">
         <h1 class="display-4 text-white text-center">Fluid jumbotron</h1>

@@ -15,6 +15,7 @@ namespace LocalizeWord.API.Repository
             _context = context;
 
         }
+
         public async Task<IEnumerable<Word>> GetVocabolary()
         {
             //To display the navigation properties, The relationships in database must Include into query
@@ -25,6 +26,33 @@ namespace LocalizeWord.API.Repository
             .Include(ctc => ctc.Category.ListItemCaptions)
             .Include (nw => nw.NativeWords).ThenInclude(t =>t.Language.ListItemCaptions)
             .ToListAsync();
+
+            return vocabolary;
+        }
+
+        public async Task<IEnumerable<Word>> FindWords(string Term)
+        {
+            var vocabolary = await _context.Words.Where(c => !c.LoanWordId.HasValue && c.Context.Contains(Term))
+            .Include(lng => lng.Language)
+            .Include(lngc => lngc.Language.ListItemCaptions)
+            .Include(ct => ct.Category)
+            .Include(ctc => ctc.Category.ListItemCaptions)
+            .Include (nw => nw.NativeWords).ThenInclude(t =>t.Language.ListItemCaptions)
+            .ToListAsync();
+
+            return vocabolary;
+                        
+        }
+
+        public async Task<Word> GetWordById(int Id)
+        {
+             var vocabolary = await _context.Words.Where(c => c.Id == Id)
+            .Include(lng => lng.Language)
+            .Include(lngc => lngc.Language.ListItemCaptions)
+            .Include(ct => ct.Category)
+            .Include(ctc => ctc.Category.ListItemCaptions)
+            .Include (nw => nw.NativeWords).ThenInclude(t =>t.Language.ListItemCaptions)
+            .FirstOrDefaultAsync();
 
             return vocabolary;
         }

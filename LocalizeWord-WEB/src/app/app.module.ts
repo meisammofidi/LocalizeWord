@@ -23,6 +23,8 @@ import { HomeLayoutComponent } from './layouts/home-layout.component';
 import { WordListComponent } from './words/word-list/word-list.component';
 import { WordCardComponent } from './words/word-card/word-card.component';
 import { appRoutes } from './routes';
+import { WordDetailComponent } from './words/word-detail/word-detail.component';
+import { WordListResolver } from './_resolvers/word-list.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -40,7 +42,8 @@ export function tokenGetter() {
       HomeLayoutComponent,
       SignupLayoutComponent,
       WordListComponent,
-      WordCardComponent
+      WordCardComponent,
+      WordDetailComponent
    ],
    imports: [
       BrowserModule,
@@ -61,7 +64,8 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard,
-      WordService
+      WordService,
+      WordListResolver
    ],
    bootstrap: [
       AppComponent

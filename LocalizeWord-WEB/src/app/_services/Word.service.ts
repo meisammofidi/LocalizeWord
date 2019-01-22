@@ -4,7 +4,6 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { Word } from '../_models/Word';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,5 +18,9 @@ export class WordService {
 
   getWord(id): Observable<Word> {
     return this.http.get<Word>(this.baseUrl + 'words/' + id);
+  }
+
+  findWords(term): Observable<Word[]> {
+    return this.http.get<Word[]>(this.baseUrl + 'words/find/' + term);
   }
 }
